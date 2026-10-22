@@ -180,13 +180,31 @@ function countPicked(date) {
 
 /* -------------------------------------------------------------- dsh 定位 */
 /** 找 dsh CLI 的 bin.js —— 桌面版（Electron）裡 PATH 上沒有它。 */
+function hasOnPath(name) {
+  const exts = process.platform === 'win32' ? ['', '.cmd', '.exe', '.bat', '.ps1'] : ['']
+  const dirs = String(process.env.PATH || '').split(process.platform === 'win32' ? ';' : ':')
+  for (const raw of dirs) {
+    const dir = raw.replace(/^"|"$/g, '').trim()
+    if (!dir) continue
+    for (const ext of exts) {
+      try { if (existsSync(join(dir, name + ext))) return true } catch (err) { /* 忽略壞路徑 */ }
+    }
+  }
+  return false
+}
+
 function findDshCli() {
   const explicit = String(cfg.dshBin || '').trim()
   if (explicit && existsSync(explicit)) return explicit
 
   const candidates = []
   const exe = process.execPath || ''
-  // macOS: /Applications/DeepSeek Harness.app/Contents/MacOS/DeepSeek Harness
+
+  // 1) 非 Desktop（npm 安裝 Node.js + `dsh` CLI）：PATH 上就有 dsh
+  if (hasOnPath('dsh')) return 'dsh'
+
+  // 2) Desktop（Electron）：應用內 app.asar 的 bin.js / 發行版 CLI 包裝腳本
+  //    macOS: /Applications/DeepSeek Harness.app/Contents/MacOS/DeepSeek Harness
   const macContents = /Contents[\\/]MacOS[\\/][^\\/]+$/.test(exe)
     ? exe.replace(/[\\/]MacOS[\\/][^\\/]+$/, '')
     : ''
@@ -194,10 +212,19 @@ function findDshCli() {
     candidates.push(join(macContents, 'Resources', 'app.asar', 'dsh', 'node_modules', '@deepseek-ai', 'dsh', 'lib', 'bin.js'))
     candidates.push(join(macContents, 'Resources', 'runtime', 'cli', 'bin', 'dsh'))
   }
-  // 從本插件位置往上翻（profile/node_modules/dsh-youtube-scroll → …）
+
+  // 3) 本插件所在的 profile tree：<profile>/node_modules/@deepseek-ai/dsh/lib/bin.js
+  candidates.push(join(PKG_ROOT, '..', '@deepseek-ai', 'dsh', 'lib', 'bin.js'))
   if (process.env.DSH_PROFILE_DIR) {
+    candidates.push(join(process.env.DSH_PROFILE_DIR, 'node_modules', '@deepseek-ai', 'dsh', 'lib', 'bin.js'))
     candidates.push(join(dirname(process.env.DSH_PROFILE_DIR), '..', 'app.asar', 'dsh', 'node_modules', '@deepseek-ai', 'dsh', 'lib', 'bin.js'))
   }
+
+  // 4) 全局 Node.js 安裝：<node>/../lib/node_modules/@deepseek-ai/dsh/lib/bin.js
+  if (exe) {
+    candidates.push(join(dirname(exe), '..', 'lib', 'node_modules', '@deepseek-ai', 'dsh', 'lib', 'bin.js'))
+  }
+
   for (const c of candidates) {
     try {
       if (c.endsWith('.js') && existsSync(c)) return c

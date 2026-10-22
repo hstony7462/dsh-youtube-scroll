@@ -3,6 +3,17 @@
 All notable changes to this project are documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning follows [Semantic Versioning](https://semver.org/).
 
+## [1.0.4] - 2026-10-22
+
+Portability fix: the plugin now works on non-Desktop (npm-installed) DSH profiles.
+
+### Fixed
+
+- `findDshCli()` no longer only looks inside the macOS Desktop app bundle. It now also
+  resolves the `dsh` CLI from `PATH`, from `<profile>/node_modules/@deepseek-ai/dsh/lib/bin.js`,
+  and from a global Node.js installation. Before this fix, a user who installed DSH with
+  npm (no Electron app bundle) would get "cannot find dsh" and no round could start.
+
 ## [1.0.3] - 2026-10-22
 
 Publishing moved to npm **Trusted Publishing** (GitHub Actions OIDC). No code changes.
