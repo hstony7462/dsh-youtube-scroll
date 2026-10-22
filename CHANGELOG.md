@@ -3,6 +3,15 @@
 All notable changes to this project are documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning follows [Semantic Versioning](https://semver.org/).
 
+## [1.0.2] - 2026-10-22
+
+First npm release (`dsh plugin add dsh-youtube-scroll`). No code changes.
+
+### Added
+
+- `.npmignore` and a trimmed `files` list: the published tarball no longer ships `test/`, `.github/`, `__pycache__` or runtime data (the first dry-run showed `mcp/__pycache__/asr.cpython-312.pyc`).
+- npm publish metadata: `repository`, `homepage`, `bugs`, MIT license and the `dsh` bundle/client fields are present in the published package.
+
 ## [1.0.1] - 2026-10-22
 
 Maintenance release: CI, badges, docs layout. No behaviour changes.

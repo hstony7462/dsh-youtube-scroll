@@ -1,0 +1,15 @@
+# build / runtime caches
+__pycache__/
+*.pyc
+*.log
+
+# development-only material
+test/
+.github/
+
+# runtime data (never published)
+notes/
+out/
+asr-venv/
+models/
+tmp/
