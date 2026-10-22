@@ -1,6 +1,6 @@
 {
   "name": "dsh-youtube-scroll",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "description": "DSH 插件：每天替你刷一輪 YouTube —— 訂閱頻道＋關鍵詞、讀字幕（沒字幕用本機 Whisper）、縮圖輔助，寫繁體中文日報；也可貼單條連結做完整解讀。",
   "exports": {
@@ -23,6 +23,7 @@
     "README.en.md",
     "CHANGELOG.md",
     "LICENSE",
+    "NOTICE.md",
     "docs"
   ],
   "dsh": {

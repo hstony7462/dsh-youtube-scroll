@@ -1,5 +1,8 @@
 # dsh-youtube-scroll — 設計與接口契約（實作前先讀）
 
+> Adapted from the architecture of [dsh-bili-scroll](https://github.com/c1overzz/dsh-bili-scroll) (MIT, c1overzz); see [NOTICE.md](../NOTICE.md).
+
+
 「刷 YouTube」版刷B站：**訂閱頻道 RSS +（可選）關鍵詞搜索 → 定時／手動跑一輪 → 讀字幕篩選 → 寫繁體日報**。
 MVP 不做自動評論（YouTube 評論要 OAuth），工具全部只讀。
 

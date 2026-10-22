@@ -143,3 +143,8 @@ CI：[`.github/workflows/test.yml`](.github/workflows/test.yml) —— push/PR �
 - 免 key 搜索有時只回很少結果（本機實測「deepseek harness」嚴格 7 天內只剩 1 條），這是 YouTube 搜索頁的限制；要穩就填 Data API key。
 - 字幕工具實測 `lang=ja` 也正常（影片有多語字幕時可指定）；沒有字幕的影片回 `no_captions`，那一刻由章程決定跳過。
 - 這一輪的日誌很長（模型推理全在 `duty.log`），排查時看尾部即可。
+
+## 致謝
+
+本插件受 **[dsh-bili-scroll](https://github.com/c1overzz/dsh-bili-scroll)**（作者 [c1overzz](https://github.com/c1overzz)，MIT）啟發，並沿用它的架構 —— 設置頁結構、每日 headless 一輪的流程、設定／狀態檔佈局與 prompt 風格 —— 做成「YouTube 版」。上游的 MIT 授權聲明全文見 [`NOTICE.md`](NOTICE.md)。
+

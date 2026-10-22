@@ -3,6 +3,19 @@
 All notable changes to this project are documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning follows [Semantic Versioning](https://semver.org/).
 
+## [1.0.5] - 2026-10-22
+
+Attribution. No code changes.
+
+### Added
+
+- [`NOTICE.md`](NOTICE.md): reproduces the MIT license of **dsh-bili-scroll**
+  ([c1overzz](https://github.com/c1overzz)), the MIT-licensed Bilibili plugin this project is
+  modelled on (settings-page structure, daily headless round, config/state layout, prompt style).
+- README.md / README.en.md: a "Credits / 致謝" section pointing at the upstream project.
+- docs/ARCHITECTURE.md: notes that the design is adapted from dsh-bili-scroll.
+- `NOTICE.md` is now part of the npm tarball and the GitHub repository.
+
 ## [1.0.4] - 2026-10-22
 
 Portability fix: the plugin now works on non-Desktop (npm-installed) DSH profiles.

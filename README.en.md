@@ -264,6 +264,13 @@ export DSH_DESKTOP_NODE_EXECUTABLE="/Applications/DeepSeek Harness.app/Contents/
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Bug reports and PRs are welcome.
 
+## Credits
+
+This plugin is inspired by **[dsh-bili-scroll](https://github.com/c1overzz/dsh-bili-scroll)** by
+[c1overzz](https://github.com/c1overzz) (MIT) and adapts its architecture: the settings-page
+structure, the daily headless-round workflow, the config/state layout and the prompt style —
+rebuilt for YouTube. The upstream MIT license text is reproduced in [`NOTICE.md`](NOTICE.md).
+
 ## License
 
 MIT — see [LICENSE](LICENSE). Copyright (c) 2026 dsh-youtube-scroll contributors.
