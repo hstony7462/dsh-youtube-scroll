@@ -33,7 +33,21 @@ const STATE_FILE = join(STATE, 'state.json')
 const OVERLAY_FILE = join(STATE, 'headless-overlay.yml')
 const DUTY_SHIPPED = join(PKG_ROOT, 'prompts', 'duty.md')
 const DUTY_HOME = join(STATE, 'duty.md')
-const MCP_SERVER = join(PKG_ROOT, 'mcp', 'server.mjs')
+// MCP server path: normally next to index.js. The fallbacks keep working if the plugin
+// was ever loaded through a moved/removed directory (a stale ESM cache or a link install
+// can make `import.meta.url` point at a path that no longer exists).
+const MCP_SERVER = (() => {
+  const primary = join(PKG_ROOT, 'mcp', 'server.mjs')
+  if (existsSync(primary)) return primary
+  const fallbacks = []
+  if (process.env.DSH_PROFILE_DIR) {
+    fallbacks.push(join(process.env.DSH_PROFILE_DIR, 'node_modules', 'dsh-youtube-scroll', 'mcp', 'server.mjs'))
+  }
+  for (const f of fallbacks) {
+    try { if (existsSync(f)) return f } catch (err) { /* 忽略壞路徑 */ }
+  }
+  return primary
+})()
 const NOTES_DIR = join(STATE, 'notes')
 const SEEN_FILE = join(STATE, 'seen.json')
 const SINGLE_SHIPPED = join(PKG_ROOT, 'prompts', 'single.md')

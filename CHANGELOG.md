@@ -3,6 +3,17 @@
 All notable changes to this project are documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning follows [Semantic Versioning](https://semver.org/).
 
+## [1.0.6] - 2026-10-22
+
+Self-healing MCP server path.
+
+### Fixed
+
+- `MCP_SERVER` now falls back to `<profile>/node_modules/dsh-youtube-scroll/mcp/server.mjs`
+  when the path next to `index.js` does not exist. A stale module path (for example after
+  moving the checkout, or loading through a removed `link:` install) used to produce
+  "找不到 MCP server" at mount time, so rounds ran without tools.
+
 ## [1.0.5] - 2026-10-22
 
 Attribution. No code changes.
