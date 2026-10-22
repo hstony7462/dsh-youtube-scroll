@@ -1,5 +1,9 @@
 # dsh-youtube-scroll（刷 YouTube）
 
+[![tests](https://github.com/hstony7462/dsh-youtube-scroll/actions/workflows/test.yml/badge.svg)](https://github.com/hstony7462/dsh-youtube-scroll/actions/workflows/test.yml)
+[![release](https://img.shields.io/github/v/release/hstony7462/dsh-youtube-scroll?display_name=tag)](https://github.com/hstony7462/dsh-youtube-scroll/releases)
+[![license](https://img.shields.io/github/license/hstony7462/dsh-youtube-scroll)](LICENSE)
+
 「每天替你刷一輪 YouTube」—— 照 `dsh-bili-scroll`（刷B站）的模式做：
 
 - 按你填的**頻道**（RSS，免 key）與**關鍵詞**（有 API key 走官方 API，沒有走免 key 搜索頁）取最近 7 天的候選
@@ -110,13 +114,13 @@ locale/*.json      插件頁的標題／說明
 跑法：
 
 ```sh
-cd "/Users/tonyli/Downloads/untitled folder/yt-scroll"
-NODE="/Applications/DeepSeek Harness.app/Contents/Resources/runtime/bin/node"
-export DSH_DESKTOP_NODE_EXECUTABLE="/Applications/DeepSeek Harness.app/Contents/MacOS/DeepSeek Harness"
-"$NODE" test/host.test.mjs
-"$NODE" test/mcp.test.mjs
-"$NODE" test/integration.mjs   # 會真跑一輪（燒一點 token）
+npm test            # 離線兩套：host（34）+ client（16）—— CI 每次推送都跑
+npm run test:live   # 打真 YouTube 的 MCP 測試（15 項；CI 只在手動觸發時跑，可能受網路/限流影響）
+node test/integration.mjs   # 真的跑一輪（會燒一點 token）
 ```
+
+CI：[`.github/workflows/test.yml`](.github/workflows/test.yml) —— push/PR 跑離線兩套；
+`workflow_dispatch` 手動觸發時額外跑 live YouTube 測試。
 
 ## 已知限制（實測補充）
 

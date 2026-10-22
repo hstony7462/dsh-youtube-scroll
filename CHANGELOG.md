@@ -3,6 +3,21 @@
 All notable changes to this project are documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning follows [Semantic Versioning](https://semver.org/).
 
+## [1.0.1] - 2026-10-22
+
+Maintenance release: CI, badges, docs layout. No behaviour changes.
+
+### Added
+
+- **GitHub Actions CI** (`.github/workflows/test.yml`): every push/PR runs the offline suites — host half (34 tests) and browser half (16 tests). A manually dispatched run also executes the live YouTube MCP suite (non-blocking, because it depends on network and YouTube rate limits).
+- **README badges** for test status, latest release and license (both README.md and README.en.md).
+- `package.json` scripts: `test` (offline: host + client), `test:live` (live MCP suite), `check` (syntax checks).
+
+### Changed
+
+- `DESIGN.md` moved to [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md); references updated in both READMEs, CONTRIBUTING, `client.js` and `mcp/server.mjs`.
+- Test docs in README now describe the offline / live split and the CI workflow.
+
 ## [1.0.0] - 2026-10-22
 
 Initial public release.

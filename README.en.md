@@ -1,8 +1,12 @@
 # dsh-youtube-scroll
 
+[![tests](https://github.com/hstony7462/dsh-youtube-scroll/actions/workflows/test.yml/badge.svg)](https://github.com/hstony7462/dsh-youtube-scroll/actions/workflows/test.yml)
+[![release](https://img.shields.io/github/v/release/hstony7462/dsh-youtube-scroll?display_name=tag)](https://github.com/hstony7462/dsh-youtube-scroll/releases)
+[![license](https://img.shields.io/github/license/hstony7462/dsh-youtube-scroll)](LICENSE)
+
 A DSH (DeepSeek Harness) plugin that **scrolls YouTube for you once a day**: it collects recent videos from the channels and keywords you follow, *reads each transcript before judging*, and writes a Traditional Chinese daily report of what is actually worth watching.
 
-Chinese documentation: [README.md](README.md). Design notes: [DESIGN.md](DESIGN.md).
+Chinese documentation: [README.md](README.md). Design notes: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 > Status: v1.0.0. Read-only by design — the plugin registers **no** tools for commenting, uploading, liking, subscribing, or OAuth.
 
@@ -239,7 +243,7 @@ export DSH_DESKTOP_NODE_EXECUTABLE="/Applications/DeepSeek Harness.app/Contents/
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) and [DESIGN.md](DESIGN.md). Bug reports and PRs are welcome.
+See [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Bug reports and PRs are welcome.
 
 ## License
 

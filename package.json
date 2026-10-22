@@ -1,6 +1,6 @@
 {
   "name": "dsh-youtube-scroll",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "DSH 插件：每天替你刷一輪 YouTube —— 訂閱頻道＋關鍵詞、讀字幕（沒字幕用本機 Whisper）、縮圖輔助，寫繁體中文日報；也可貼單條連結做完整解讀。",
   "exports": {
@@ -19,10 +19,10 @@
     "icon.svg",
     "lib",
     "test",
-    "DESIGN.md",
     "README.en.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "docs"
   ],
   "dsh": {
     "bundle": {
@@ -53,7 +53,9 @@
     "node": ">=20"
   },
   "scripts": {
-    "test": "node test/host.test.mjs && node test/mcp.test.mjs"
+    "test": "node test/host.test.mjs && node test/client.test.mjs",
+    "test:live": "node test/mcp.test.mjs",
+    "check": "node --check index.js && node --check client.js && node --check mcp/server.mjs && node --check lib/mcp-call.mjs"
   },
   "repository": {
     "type": "git",

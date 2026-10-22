@@ -6,7 +6,7 @@
  * Transport: newline-delimited JSON-RPC 2.0 (one JSON object per line on stdin/stdout).
  * stdout carries JSON-RPC messages ONLY; diagnostics go to stderr (YT_DEBUG=1 to enable).
  *
- * Tools (see DESIGN.md §4):
+ * Tools (see docs/ARCHITECTURE.md §4):
  *   yt_search   {query, days?, limit?}   -> {source, items[]}
  *   yt_channel  {channel, days?, limit?} -> {source, items[]}
  *   yt_video    {videoId}                -> video metadata incl. hasCaptions/langs
@@ -189,7 +189,7 @@ function decodeEntitiesOnce(input) {
   });
 }
 
-/** YouTube payloads double-escape text (`&amp;#39;`), so un-escape twice (DESIGN.md §4). */
+/** YouTube payloads double-escape text (`&amp;#39;`), so un-escape twice (docs/ARCHITECTURE.md §4). */
 function decodeEntities(input, times = 2) {
   let out = String(input ?? '');
   for (let i = 0; i < times; i += 1) out = decodeEntitiesOnce(out);

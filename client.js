@@ -20,7 +20,7 @@
  *
  *   別自己糊標題欄按鈕 + 全屏 overlay（第一版刷B站就是這麼幹的，一眼看出「跟別的插件不一樣」）。
  *
- * ⭐ 契約：DESIGN.md §3（HTTP）＋ §6（UI）
+ * ⭐ 契約：docs/ARCHITECTURE.md §3（HTTP）＋ §6（UI）
  *     GET  /api/yt-duty/status              → {ok, today, ranToday, pickedToday, perDay, windows:{noon,night}, peakValley, report, lastRun, lastError, config}
  *     GET  /api/yt-duty/config              → {ok, config}
  *     POST /api/yt-duty/config  {patch:{}}  → {ok, config}      ⚠️ body 外面要多包一層 patch

@@ -4,7 +4,7 @@ Thanks for helping improve **dsh-youtube-scroll**! This is a DSH (DeepSeek Harne
 
 ## Read first
 
-- [DESIGN.md](DESIGN.md) — package layout, config keys, HTTP API and the original design contracts.
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — package layout, config keys, HTTP API and the original design contracts.
 - [README.en.md](README.en.md) / [README.md](README.md) — features, settings and known limits.
 
 ## Invariants (please do not break these)
