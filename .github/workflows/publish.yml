@@ -32,6 +32,11 @@ jobs:
 
       - name: Verify tag matches package.json
         run: |
+          # Manual dispatch (workflow_dispatch) runs on a branch; only tag pushes are checked.
+          if [[ "${GITHUB_REF}" != refs/tags/* ]]; then
+            echo "manual dispatch on ${GITHUB_REF}: skipping tag/version check"
+            exit 0
+          fi
           TAG="${GITHUB_REF_NAME#v}"
           PKG="$(node -p "require('./package.json').version")"
           echo "tag=$TAG package=$PKG"
