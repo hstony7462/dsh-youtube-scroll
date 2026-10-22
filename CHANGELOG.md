@@ -5,7 +5,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versio
 
 ## [1.0.2] - 2026-10-22
 
-First npm release (`dsh plugin add dsh-youtube-scroll`). No code changes.
+First npm release — **published as `dsh-youtube-scroll@1.0.2` on npm** (`dsh plugin add dsh-youtube-scroll`). No code changes.
 
 ### Added
 

@@ -12,6 +12,8 @@
 - 可以開**峰谷時段自動跑**（兩個每日窗口：中午 12:00–14:00、夜間 18:00–次日 09:00；不是「工作日/週末」語義）
 - **只給六隻只讀工具**：搜尋 / 頻道 / 詳情 / 字幕 / 本機轉寫 / 縮圖；發評論、上傳、OAuth 那些根本不註冊
 
+[![npm](https://img.shields.io/npm/v/dsh-youtube-scroll)](https://www.npmjs.com/package/dsh-youtube-scroll)
+
 ## 額外能力（v1.0）
 
 - **單條連結深入分析**：設置頁貼一條連結 → headless 那一輪用 `yt_transcript`／`yt_asr`／`yt_frames` 完整讀完，
@@ -34,11 +36,17 @@
 
 ## 安裝
 
-**從 GitHub 安裝（推薦，可重現）**：
+**從 npm 安裝（最簡短）**：
 
 ```bash
-dsh plugin --profile web add github:hstony7462/dsh-youtube-scroll#v1.0.1
-# 桌面版：dsh plugin --profile desktop add github:hstony7462/dsh-youtube-scroll#v1.0.1
+dsh plugin --profile web add dsh-youtube-scroll
+# 桌面版：dsh plugin --profile desktop add dsh-youtube-scroll
+```
+
+**從 GitHub 安裝（可釘版本）**：
+
+```bash
+dsh plugin --profile web add github:hstony7462/dsh-youtube-scroll#v1.0.2
 ```
 
 裝完**重啟一次 DSH**、刷新頁面；設置頁會出現 **設置 → YouTube 刷**。

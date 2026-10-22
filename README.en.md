@@ -18,6 +18,8 @@ Chinese documentation: [README.md](README.md). Design notes: [docs/ARCHITECTURE.
 - **Off-peak scheduling.** Two windows, each firing at most once per day: noon `12:00–14:00` and night `18:00–09:00` (local time). Both are gated by the master switch, the daily pick quota, and a "not already running" check.
 - **v1.0 extras.** Single-link deep analysis (`notes/<videoId>.md`), SRT export, cross-day dedupe, daily Data-API search-quota guard, manual stop + per-round timeout, macOS completion notifications, report index/prune, and an API-key test button.
 
+[![npm](https://img.shields.io/npm/v/dsh-youtube-scroll)](https://www.npmjs.com/package/dsh-youtube-scroll)
+
 ## Features
 
 | Feature | Notes |
@@ -81,11 +83,17 @@ Chinese documentation: [README.md](README.md). Design notes: [docs/ARCHITECTURE.
 
 ## Install
 
-**From GitHub (recommended, reproducible):**
+**From npm (shortest):**
 
 ```bash
-dsh plugin --profile web add github:hstony7462/dsh-youtube-scroll#v1.0.1
-# Desktop app: dsh plugin --profile desktop add github:hstony7462/dsh-youtube-scroll#v1.0.1
+dsh plugin --profile web add dsh-youtube-scroll
+# Desktop app: dsh plugin --profile desktop add dsh-youtube-scroll
+```
+
+**From GitHub (pin a release):**
+
+```bash
+dsh plugin --profile web add github:hstony7462/dsh-youtube-scroll#v1.0.2
 ```
 
 Restart DSH once (the host half loads at startup) and reload the page. The profile should show
