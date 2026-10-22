@@ -34,10 +34,18 @@
 
 ## 安裝
 
-`plugin_manager` 的 `install_bundle`，target 傳本目錄絕對路徑。安裝後 `include:youtube-scroll` active，
-設置頁出現 **設置 → YouTube 刷**。
+**從 GitHub 安裝（推薦，可重現）**：
 
-> ⚠️ 本插件是 `link:` 安裝 —— **這個目錄不能刪**。
+```bash
+dsh plugin --profile web add github:hstony7462/dsh-youtube-scroll#v1.0.1
+# 桌面版：dsh plugin --profile desktop add github:hstony7462/dsh-youtube-scroll#v1.0.1
+```
+
+裝完**重啟一次 DSH**、刷新頁面；設置頁會出現 **設置 → YouTube 刷**。
+
+**本地開發**：用 `plugin_manager` 的 `install_bundle`，target 傳本目錄絕對路徑（會產生 `link:` 依賴，改動即時生效）。
+
+> 本機現況：運行的是 **GitHub v1.0.1**；開發副本在 `~/Projects/dsh-youtube-scroll`。
 
 ## 設置頁
 

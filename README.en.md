@@ -81,13 +81,24 @@ Chinese documentation: [README.md](README.md). Design notes: [docs/ARCHITECTURE.
 
 ## Install
 
-This is a **local-directory (link-style) bundle install** — the plugin is run from this directory, not copied.
+**From GitHub (recommended, reproducible):**
 
-1. Open DSH and use the `plugin_manager` tool with `install_bundle`, passing the **absolute path** of this directory as the target.
-2. Restart DSH (the host half loads at startup) and reload the page.
-3. The profile should show `include:youtube-scroll` as active, and the settings page gains a **YouTube 刷** section (the panel and its section label are Traditional Chinese; `locale/zh.json` and `locale/en.json` only localise the plugin's card title/description).
+```bash
+dsh plugin --profile web add github:hstony7462/dsh-youtube-scroll#v1.0.1
+# Desktop app: dsh plugin --profile desktop add github:hstony7462/dsh-youtube-scroll#v1.0.1
+```
 
-> ⚠️ Because this is a link install, **do not delete or move this directory**. To update, replace the files in place and restart DSH; to uninstall, remove the bundle from the profile.
+Restart DSH once (the host half loads at startup) and reload the page. The profile should show
+`include:youtube-scroll` as active, and the settings page gains a **YouTube 刷** section
+(the panel and its section label are Traditional Chinese; `locale/zh.json` and `locale/en.json`
+only localise the plugin's card title/description).
+
+**Local development:** install this directory through `plugin_manager`'s `install_bundle` with the
+absolute path as the target — that creates a `link:` dependency, so edits take effect without
+reinstalling (restart still required for host-half changes).
+
+> This machine runs the GitHub `v1.0.1` copy; the development checkout lives at
+> `~/Projects/dsh-youtube-scroll`.
 
 ## Settings page
 
