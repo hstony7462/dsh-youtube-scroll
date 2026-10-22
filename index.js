@@ -795,7 +795,7 @@ function status() {
   return {
     ok: true,
     today: dayKey(now),
-    ranToday: Number(st.lastRoundAt || '').toString().startsWith(dayKey(now)) ? 1 : 0,
+    ranToday: String(st.lastRoundAt || '').startsWith(dayKey(now)) ? 1 : 0,
     pickedToday: picked,
     perDay: Number(cfg.perDay) || 0,
     peakValley: !!cfg.peakValley,

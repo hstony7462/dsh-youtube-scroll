@@ -3,6 +3,16 @@
 All notable changes to this project are documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning follows [Semantic Versioning](https://semver.org/).
 
+## [1.0.7] - 2026-10-22
+
+Status display fix.
+
+### Fixed
+
+- `GET /api/yt-duty/status` reported `ranToday: 0` even after a completed round, because
+  `Number(lastRoundAt).toString()` produced `NaN` before the date prefix check. The settings
+  page now correctly shows that today's round has run.
+
 ## [1.0.6] - 2026-10-22
 
 Self-healing MCP server path.
