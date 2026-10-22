@@ -54,5 +54,13 @@
   },
   "scripts": {
     "test": "node test/host.test.mjs && node test/mcp.test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hstony7462/dsh-youtube-scroll.git"
+  },
+  "homepage": "https://github.com/hstony7462/dsh-youtube-scroll#readme",
+  "bugs": {
+    "url": "https://github.com/hstony7462/dsh-youtube-scroll/issues"
   }
 }
