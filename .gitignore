@@ -1,0 +1,21 @@
+# dependencies / build output
+node_modules/
+backups/
+
+# runtime data written by the plugin (kept out of the repo on purpose)
+out/
+*.log
+asr-venv/
+models/
+tmp/
+notes/
+
+# python
+__pycache__/
+*.pyc
+
+# local secrets / environment
+.env
+
+# OS junk
+.DS_Store
