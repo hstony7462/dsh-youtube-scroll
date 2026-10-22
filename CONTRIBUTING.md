@@ -58,3 +58,17 @@ for f in index.js client.js mcp/server.mjs lib/mcp-call.mjs; do "$NODE" --check 
 ## License
 
 By contributing you agree that your contributions are licensed under the [MIT License](LICENSE).
+
+## Releasing
+
+Releases are published from CI with npm **Trusted Publishing** (OIDC) — no tokens.
+
+1. Bump `version` in `package.json` and add a `CHANGELOG.md` entry.
+2. Commit, then tag: `git commit -am "chore(release): vX.Y.Z" && git tag -a vX.Y.Z -m "vX.Y.Z"`.
+3. Push both: `git push origin main --follow-tags`.
+4. `.github/workflows/publish.yml` runs on the `v*` tag, checks that the tag matches
+   `package.json`, and runs `npm publish --provenance`. The npm package page must have
+   that workflow configured as a trusted publisher (one-time setup, owner-only).
+
+If the trusted-publisher configuration is missing, the workflow fails with an npm
+auth error; fix the configuration instead of adding a token.
