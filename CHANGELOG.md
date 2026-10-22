@@ -3,6 +3,18 @@
 All notable changes to this project are documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning follows [Semantic Versioning](https://semver.org/).
 
+## [1.0.3] - 2026-10-22
+
+Publishing moved to npm **Trusted Publishing** (GitHub Actions OIDC). No code changes.
+
+### Changed
+
+- Pushing a `v*` tag now publishes the package automatically from
+  [`.github/workflows/publish.yml`](.github/workflows/publish.yml) using OIDC and
+  provenance; no long-lived npm tokens are used or stored.
+- The npm package page has this workflow configured as a trusted publisher
+  (`publish.yml` ↔ `hstony7462/dsh-youtube-scroll`, direct publish + stage publish).
+
 ## [1.0.2] - 2026-10-22
 
 First npm release — **published as `dsh-youtube-scroll@1.0.2` on npm** (`dsh plugin add dsh-youtube-scroll`). No code changes.
